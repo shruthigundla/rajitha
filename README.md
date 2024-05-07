@@ -1,15 +1,15 @@
-## BOX
+## crop1
+```
 
 import os
 import csv
 from PIL import Image, ImageDraw
-
-
-csv_file = "/home/afreen-mohammad/Downloads/7622202030987_bounding_box.csv"
-image_dir = "/home/afreen-mohammad/Downloads/7622202030987/"
-output_dir = "/home/afreen-mohammad/Downloads/7622202030987/_with_boxes"
-``
-
+import os
+import csv
+from PIL import Image,ImageDraw
+csv_file = "/home/shruthi-gundla/Downloads/7622202030987_bounding_box.csv"
+image_dir = "/home/shruthi-gundla/Downloads/7622202030987"
+output_dir = "/home/shruthi-gundla/Downloads/7622202030987_with_boxes"
 os.makedirs(output_dir, exist_ok=True)
 
 
@@ -22,8 +22,6 @@ def draw_boxes(image, boxes):
         bottom = int(box['bottom'])
         draw.rectangle([left, top, right, bottom], outline="red")
     return image
-
-
 def crop_image(image, boxes):
     cropped_images = []
     for box in boxes:
@@ -34,8 +32,7 @@ def crop_image(image, boxes):
         cropped_img = image.crop((left, top, right, bottom))
         cropped_images.append(cropped_img)
     return cropped_images
-
-
+    
 with open(csv_file, 'r') as file:
     csv_reader = csv.DictReader(file)
     for row in csv_reader:
@@ -49,16 +46,19 @@ with open(csv_file, 'r') as file:
             cropped_img.save(os.path.join(output_dir, f"{i}_{image_name}"))  
         full_image_with_boxes = draw_boxes(image, boxes)
         full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
+```
 
-## Imagehistogram
+
+## histogram
+```
 
 
 import numpy as np
 import cv2 as cv
 from matplotlib import pyplot as plt
  
-img = cv.imread("/home/afreen-mohammad/Downloads/flowers.jpeg")
-cv.imwrite("/home/afreen-mohammad/Downloads/__pycache__/sana.jpg",img)
+img = cv.imread('/home/shruthi-gundla/Downloads/avngers.jpg')
+cv.imwrite("/home/shruthi-gundla/Desktop/shruthi/histogramgraph.png",img)
 assert img is not None, "file could not be read, check with os.path.exists()"
 color = ('b','g','r')
 for i,col in enumerate(color):
@@ -66,22 +66,24 @@ for i,col in enumerate(color):
  plt.plot(histr,color = col)
  plt.xlim([0,256])
 plt.show()
+```
 
+## iterate
 
-## Range
-
+```
 
 num = list(range(10))
 previousNum = 0
 for i in num:
     sum = previousNum + i
-    print('Current Number '+ str(i) + 'Previous Number ' + str(previousNum) + 'is ' + str(sum)) # <- This is the issue.
+    print('Current Number '+ str(i) + 'Previous Number ' + str(previousNum) + 'is ' + str(sum))
     previousNum=i
+```
 
 
 ## video
 
-
+```
 
 # import the opencv library 
 import cv2 
@@ -108,4 +110,6 @@ while(True):
 # After the loop release the cap object 
 vid.release() 
 # Destroy all the windows 
-cv2.destroyAllWindows() 
+cv2.destroyAllWindows()
+```
+
