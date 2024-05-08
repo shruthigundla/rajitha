@@ -2,7 +2,7 @@
 ## crop1
 DRAWING BOUNDING BOXES
 INPUT
-[7622202030987_bounding_box.csv](https://github.com/shruthigundla/rajitha/files/15245873/7622202030987_bounding_box.csv)
+![7622202030987_f306535d741c9148dc458acbbc887243_L_493](https://github.com/shruthigundla/rajitha/assets/169051447/94bdd867-d9d5-4104-81d7-646a625c7bf0)
 
 LIBRARIES USED
 
