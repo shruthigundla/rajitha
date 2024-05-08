@@ -83,8 +83,7 @@ with open(csv_file, 'r') as file:
         full_image_with_boxes = draw_boxes(image, boxes)
         full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
 ```
-
-![full_7622202030987_f306535d741c9148dc458acbbc887243_L_493](https://github.com/shruthigundla/rajitha/assets/169051447/f5666311-18cb-4574-95d1-90bb6756522c)
+![image](https://github.com/shruthigundla/rajitha/assets/169051447/e4c811fa-f237-419a-bc61-cd93129ad11f)
 
 
 Bounding box coordinates are extracted from the row and passed to the to crop regions of interest from the image.
