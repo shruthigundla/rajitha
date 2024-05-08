@@ -1,5 +1,5 @@
 
-## crop1
+## CROP1
 DRAWING BOUNDING BOXES
 crop
 ![image](https://github.com/shruthigundla/rajitha/assets/169051447/db96c4cc-e34f-42fd-9933-9af754bd69e6)
@@ -93,7 +93,7 @@ Bounding box coordinates are extracted from the row and passed to the to crop re
 Cropped images are saved individually with filenames and bounding boxes are drawn on the original image using the draw_boxes() function.
 The original image with bounding boxes drawn is saved with a filename prefix 'full_' followed by the original image filename.
 
-## histogram
+## HISTOGRAM
 A histogram is a visual representation of the distribution of quantitative data.Histograms are commonly used in image processing and computer vision for tasks like analyzing pixel intensity distributions.
 
 ![avngers](https://github.com/shruthigundla/rajitha/assets/169051447/8b364903-bae5-4598-a42f-f2f6b619220a)
@@ -159,7 +159,7 @@ this function shows the output we made
 
 ![histogram images main](https://github.com/shruthigundla/rajitha/assets/169051447/1c5db1e2-ef7d-4275-99b3-732041a700f8)
 
-## iterate
+## ITERATE
 Writing a program to iterate the first ten numbers,and in each iteration, printing the sum of current and previous numbers.
 
 
@@ -195,7 +195,7 @@ here we can see the updated values which are accumulated by sum of previous numb
 
 
 
-## video
+## VIDEO
 python script to capture video from webcam
 
 
