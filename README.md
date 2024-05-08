@@ -2,7 +2,8 @@
 ## crop1
 DRAWING BOUNDING BOXES
 crop
-[image](https://github.com/shruthigundla/rajitha/assets/169051447/b095b7d3-653a-4224-afcb-b870d839c8a1)
+![image](https://github.com/shruthigundla/rajitha/assets/169051447/db96c4cc-e34f-42fd-9933-9af754bd69e6)
+
 
 
 
