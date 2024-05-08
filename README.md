@@ -89,6 +89,10 @@ The original image with bounding boxes drawn is saved with a filename prefix 'fu
 ## histogram
 A histogram is a visual representation of the distribution of quantitative data.Histograms are commonly used in image processing and computer vision for tasks like analyzing pixel intensity distributions.
 
+![avngers](https://github.com/shruthigundla/rajitha/assets/169051447/8b364903-bae5-4598-a42f-f2f6b619220a)
+
+
+
 LIBRARIES USED:
 ```
 import numpy as np
