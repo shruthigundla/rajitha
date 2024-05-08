@@ -1,14 +1,20 @@
+
 ## crop1
 ```
 
 import os
+This imports the operating system module,mainly it depends on functionality like reading or writing the files and manipulating paths.
 import csv
+Csv means comma seperated values,It is used to import reading and writing tabular data
 from PIL import Image, ImageDraw
+PIL used to import images,adds support for opening, manipulating, and saving many different image file formats. 
 import os
 import csv
 from PIL import Image,ImageDraw
 csv_file = "/home/shruthi-gundla/Downloads/7622202030987_bounding_box.csv"
+here we assigned file path to CSV.
 image_dir = "/home/shruthi-gundla/Downloads/7622202030987"
+Here we given the path where images are stored 
 output_dir = "/home/shruthi-gundla/Downloads/7622202030987_with_boxes"
 os.makedirs(output_dir, exist_ok=True)
 
