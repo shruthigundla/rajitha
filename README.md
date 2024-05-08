@@ -84,6 +84,8 @@ with open(csv_file, 'r') as file:
         full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
 ```
 
+
+
 Bounding box coordinates are extracted from the row and passed to the to crop regions of interest from the image.
 Cropped images are saved individually with filenames and bounding boxes are drawn on the original image using the draw_boxes() function.
 The original image with bounding boxes drawn is saved with a filename prefix 'full_' followed by the original image filename.
