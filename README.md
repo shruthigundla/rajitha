@@ -150,6 +150,8 @@ plt.show()
 ```
 this function shows the output we made
 
+![histogram images main](https://github.com/shruthigundla/rajitha/assets/169051447/1c5db1e2-ef7d-4275-99b3-732041a700f8)
+
 ## iterate
 Writing a program to iterate the first ten numbers,and in each iteration, printing the sum of current and previous numbers.
 
