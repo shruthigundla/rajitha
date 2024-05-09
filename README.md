@@ -107,7 +107,7 @@ import cv2 as cv
 from matplotlib import pyplot as plt
 ```
 These are the libraries we used in histogram ,numpy is used for numerical computing.
-cv2 is  provides various tools and algorithms for image and video processing
+cv2 is  provides various tools and algorithms for image and video processing.
 from matplotlib import pyplot as plt,which is a plotting library for Python.
 .
 
@@ -201,7 +201,9 @@ librares used
 ```
 import imutils 
 import cv2 # opencv 모듈
-````
+```
+cv2 is  provides various tools and algorithms for image and video processing.
+
 ```
 video = ""
 
