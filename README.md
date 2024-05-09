@@ -283,6 +283,7 @@ by using vs.release method the recorded video is released
 cv2.destroyAllWindows()
 ```
 this function closes all OpenCV windows that are  opened during this program.and cleans the displayed windows which are worked during this program.
+https://github.com/shruthigundla/rajitha/assets/169051447/bb2bd719-c351-4c76-9278-fd14c13bd7d2
 
 
 
