@@ -202,6 +202,7 @@ librares used
 import imutils 
 import cv2 # opencv 모듈
 ```
+import imutils helps in immage processing functions such as translation, rotation, resizing, skeletonization, displaying Matplotlib images,etc
 cv2 is  provides various tools and algorithms for image and video processing.
 
 ```
