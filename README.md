@@ -196,58 +196,90 @@ here we can see the updated values which are accumulated by sum of previous numb
 
 
 ## VIDEO
-python script to capture video from webcam
 
-
-LIBRARIES USED
+librares used
 ```
-# import the opencv library 
-import cv2
+import imutils 
+import cv2 # opencv 모듈
+````
 ```
-openCV (Open Source Computer Vision Library) is an open-source computer vision and machine learning software library. It's widely used for various tasks such as image and video processing, object detection and tracking, face recognition, and more.
-cv2 is  provides various tools and algorithms for image and video processing
-  
-```  
-# define a video capture object 
-vid = cv2.VideoCapture(0) 
+video = ""
+
+result_path = ""camera.avi""
 ```
-IT is used to capture video frames from a camera. It allows you to access video streams from various sources, including video files, image sequences, and cameras.
+this states that we given path to save the video
 
-while(True): 
-
-
-``` 
-    # Capture the video frame 
-    # by frame 
-    ret, frame = vid.read()
 ```
-
- It is used to capture video frames from the camera stream using the VideoCapture object we created. The captured frame, represented as a NumPy array. Each element of the array contains the pixel values of the corresponding pixel in the frame.
-  
-  
-
- ```
-    # Display the resulting frame 
-    cv2.imshow('frame', frame)
+if video == "":
+    print("[webcam start]")
+    vs = cv2.VideoCapture(0)
 ```
+using cv2 function we started capturing the video from webcam
 
-here we displayed the resulting frame in a window with the title 'frame'.
 
+```
+else:
+    print("[video start]")
+    vs = cv2.VideoCapture(video)
+```
+else refers to of given condition is not satisfied then it will excute the code witthin block.then it stat capturng video using cv2
+
+writer = None
+
+
+```
+while True:
+    ret, frame = vs.read
+```
+here read function refers that loop continuosly reads the frames that are recorded by video.
     
 ```
-    # the 'q' button is set as the 
-    # quitting button you may use any 
-    # desired button of your choice 
-    if cv2.waitKey(1) & 0xFF == ord('q'): 
+    if frame is None:
         break
 ```
-here q is used to quit the program .after complition of the video.
+after reading all frames the loop breaks 
 
+```
+    frame = imutils.resize(frame, width=320, height=240)
+```
+by using imutils.resize function size and ratios of the images are adjusted.
+
+    
+    ```
+    cv2.imshow("frame", frame)
+    ```
+here the resized image is shown by using open cv
+
+```
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord("q"):
+        break
+```
+        by using wait key statment key is presed for 1millisecond and returns valu to key.and If the 'q' key is pressed, the loop is broken using the break statement, and terminate the video capture process.
+                                    
   ```
-# After the loop release the cap object 
-vid.release() 
-# Destroy all the windows 
+  if writer is None:
+        fourcc = cv2.VideoWriter_fourcc(*"MJPG")
+        writer = cv2.VideoWriter(result_path, fourcc, 25, (frame.shape[1], frame.shape[0]), True)
+  ```
+
+this check if  writer object is none then it is not intialised .so by using cv2 function the line intulises video code by using 'MJPG'.and in result path the video out put is saved. here width and height of videoframes are obtained from the shape of the input frame.
+
+   ```
+ if writer is not None:
+        writer.write(frame)
+```
+this line states that if video writer frame is properly intialised then frames are writen to the out put video file
+
+```
+vs.release()
+```
+by using vs.release method the recorded video is released
+
+```
 cv2.destroyAllWindows()
 ```
-it states that after the loop displays the frames from the all video streams it is imporatant to distroy other additionally created windows.
+this function closes all OpenCV windows that are  opened during this program.and cleans the displayed windows which are worked during this program.
+
+
 
