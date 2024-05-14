@@ -5,8 +5,8 @@ DRAWING BOUNDING BOXES
 crop
 ![image](https://github.com/shruthigundla/rajitha/assets/169051447/db96c4cc-e34f-42fd-9933-9af754bd69e6)
 
-```LIBRARIES USED
-```
+LIBRARIES USED
+
 
 ```
 import os
