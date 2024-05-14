@@ -11,12 +11,19 @@ from PIL import Image, ImageDraw
 import argparse
 
 parser = argparse.ArgumentParser()
+
 parser.add_argument("--image_path", help = "Enter the path of your image")
+
 parser.add_argument("--csv", help = "your csv file path , which has bounding box values")
+
 parser.add_argument("--out_dir", help = "name of output directory where you want to save your output")
+
 args = parser.parse_args()
+
 image_dir = args.image_path
+
 csv_file = args.csv
+
 output_dir = args.out_dir
 
 
