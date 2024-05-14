@@ -5,47 +5,31 @@ DRAWING BOUNDING BOXES
 crop
 ![image](https://github.com/shruthigundla/rajitha/assets/169051447/db96c4cc-e34f-42fd-9933-9af754bd69e6)
 
-
-
-
-LIBRARIES USED
-
-
-```
 import os
 import csv
 from PIL import Image, ImageDraw
-```
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--image_path", help = "Enter the path of your image")
+parser.add_argument("--csv", help = "your csv file path , which has bounding box values")
+parser.add_argument("--out_dir", help = "name of output directory where you want to save your output")
+args = parser.parse_args()
+image_dir = args.image_path
+csv_file = args.csv
+output_dir = args.out_dir
 
 
-This imports the operating system module,mainly it depends on functionality like reading or writing the files and manipulating paths.
-Csv means comma seperated values,It is used to import reading and writing tabular data
-PIL used to import images,adds support for opening, manipulating, and saving many different image file formats. 
 
 
-```
-csv_file = "/home/shruthi-gundla/Downloads/7622202030987_bounding_box.csv"
-```
-Here we are assigning the file path to csv.
+# csv_file = "/home/shruthi-gundla/Downloads/7622202030987_bounding_box.csv"
+# image_dir = "/home/shruthi-gundla/Downloads/7622202030987"
+# output_dir = "/home/shruthi-gundla/Downloads/7622202030987_with_boxes"
 
-```
-image_dir = "/home/shruthi-gundla/Downloads/7622202030987"
-```
-Here we given the path where images are stored
 
-```
-output_dir = "/home/shruthi-gundla/Downloads/7622202030987_with_boxes"
-```
-we are specifying the out put directory path.
-
-```
 os.makedirs(output_dir, exist_ok=True)
-```
-we are creating a directory here.id the directory already exits it doesnot show error
 
 
-
-```
 def draw_boxes(image, boxes):
     draw = ImageDraw.Draw(image)
     for box in boxes:
@@ -54,11 +38,9 @@ def draw_boxes(image, boxes):
         right = int(box['right'])
         bottom = int(box['bottom'])
         draw.rectangle([left, top, right, bottom], outline="red")
-```
-here we are defing the function draw_boxes,that draw boxes on image. and we representing the coordinates top-left and bottom-right corners of the bounding box.and a red rectangle is drawn around each bounding box.
-
-```
     return image
+
+
 def crop_image(image, boxes):
     cropped_images = []
     for box in boxes:
@@ -69,23 +51,30 @@ def crop_image(image, boxes):
         cropped_img = image.crop((left, top, right, bottom))
         cropped_images.append(cropped_img)
     return cropped_images
-```
-The boxes argument is a list of dictionaries representing the bounding boxes. Each dictionary contains keys 'left', 'top', 'right', and 'bottom', corresponding to the coordinates of the bounding box.For each bounding box, the coordinates are extracted, converted to integers, and used to croped a region from the input image using the crop() method of the PIL Image object.This function can be used to crop regions of interest from an image based on the provided bounding box coordinates.
-    
-```
+
+
 with open(csv_file, 'r') as file:
     csv_reader = csv.DictReader(file)
+    print(csv_reader)
     for row in csv_reader:
-        image_name = row['filename']
-        image_path = os.path.join(image_dir, image_name)
-        output_path = os.path.join(output_dir, image_name)
-        image = Image.open(image_path)
-        boxes = [{'left': row['xmin'], 'top': row['ymin'], 'right': row['xmax'], 'bottom': row['ymax']}]
-        cropped_images = crop_image(image, boxes)
-        for i, cropped_img in enumerate(cropped_images):
-            cropped_img.save(os.path.join(output_dir, f"{i}_{image_name}"))  
-        full_image_with_boxes = draw_boxes(image, boxes)
-        full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
+        # print(row)
+        # print(type(row))
+        print(row["filename"])
+
+    for row in csv_reader:
+       image_name = row['filename']
+       image_path = os.path.join(image_dir, image_name)
+       output_path = os.path.join(output_dir, image_name)
+       image = Image.open(image_path)
+       boxes = [{'left': row['xmin'], 'top': row['ymin'], 'right': row['xmax'], 'bottom': row['ymax']}]
+       cropped_images = crop_image(image, boxes)
+       for i, cropped_img in enumerate(cropped_images):
+        cropped_img.save(os.path.join(output_dir, f"{i}_{image_name}"))  
+       full_image_with_boxes = draw_boxes(image, boxes)
+       full_image_with_boxes.save(os.path.join(output_dir, f"full_{image_name}"))
+
+
+
 ```
 ![image](https://github.com/shruthigundla/rajitha/assets/169051447/e4c811fa-f237-419a-bc61-cd93129ad11f)
 
